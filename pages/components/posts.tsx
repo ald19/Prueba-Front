@@ -41,7 +41,7 @@ const Posts = (props: any) => {
                     return true;
             });
 
-            let updatedArray = [...props.results];
+            const updatedArray = [...props.results];
             updatedArray.splice(index , 1);
             props.setResults(updatedArray);
         }
@@ -103,6 +103,9 @@ const Posts = (props: any) => {
             
             <Confirm
                 open={confirm}
+                content='¿Estás seguro?'
+                confirmButton='Confirmar'
+                cancelButton='Cancelar'
                 onCancel={() => setConfirm(false)}
                 onConfirm={() => removePost(selected)}
             />

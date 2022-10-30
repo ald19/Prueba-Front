@@ -38,7 +38,8 @@ const PostsModal = (props: any) => {
             });
 
             //Creo el nuevo array actualizado y hago set
-            const updatedArray = [...props.results].splice(1, index, updatedPost.data.updatePost)
+            const updatedArray = [...props.results];
+            updatedArray.splice(index, 1, updatedPost.data.updatePost);
             props.setResults(updatedArray);
         }
         
@@ -75,7 +76,7 @@ const PostsModal = (props: any) => {
                         </Form.Field>
                     </Grid.Column>
                     <Grid.Column>
-                        <Form.TextArea label="Descripción" type='text' value={form.body} onChange={event => handleChange('body', event.target.value)} />
+                        <Form.TextArea label="Descripción" type='text' value={form.body} onChange={(event: any) => handleChange('body', event.target.value)} />
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
