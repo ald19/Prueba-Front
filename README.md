@@ -1,34 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Prueba técnica Frontend
+---
+En esta prueba, se han desarrollado los siguientes puntos:
+- Crear un Proyecto React con yarn, next.js y typescript.
+- Usar GraphQL-Client (Apollo) para integrar (CRUD) utilizando la API: https://graphqlzero.almansi.me/
+- Comentarios en código y readme de uso del proyecto.
+- UX/UI, intuitivo y corporativo.
 
-## Getting Started
+## Requisitos
+- Tener instalado npm y Node.js (en mi caso, npm 8.19.2 y Node.js 16.17.0)
+- Tener instalado yarn (en mi caso, 1.22.19)
 
-First, run the development server:
+## Tecnologías
+Para este proyecto, se han utilizado las siguientes tecnologías:
+- [Next.js](https://nextjs.org/docs)
+- [GraphQL](https://graphql.org/graphql-js/)
+- [Apollo Client](https://www.apollographql.com/docs/react/)
+- [Semantic UI React](https://react.semantic-ui.com/)
 
+## Desarrollo
+El desarrollo de la prueba se ha relizado siguiendo los pasos:
+1. Instalar dependencias a través de los comandos proporcionados indicados en la documentación de cada tecnología.
+2. Integrar **Apollo Client** y **Semantic UI React** en el archivo '_app.tsx'.
+3. Creación de la carpeta '/graphql' junto con el archivo 'queries.ts'.
+4. Implementación de las querys en el archivo 'queries.ts. 
+5. Creación de la carpeta '/components' junto con el archivo 'posts.tsx'.
+6. En el archivo 'posts.tsx', se crea un componente **Posts** en el cual:
+    - Utilizando los métodos de **Apollo Client**, se realiza la petición para obtener el listado de posts. 
+    - Una vez obtengo los datos, se muestran en una tabla utilizando los componentes proporcionados por **Semantic UI React** para que sea responsive.
+7. Una vez obtenido el listado de posts, las funcionalidades de crear y editar se realizarán a través de un formulario mostrado en un modal. Para ello, se crea dentro de la carpeta '/components' un archivo 'posts-modal.tsx'. Este, será un nuevo componente **PostsModal**. En dicho componente:
+    - Utilizando los métodos de **Apollo Client**, se realiza las peticiones necesarias para crear o editar un post.
+    - Para ello, desde el componente **Posts**, se le pasa por props a este componente la información necesaria que le indicará si crear o editar un post.
+    - Estas funcionalidades se realizarán a través de un formulario mostrado en un Modal utilizando de nuevo los componentes que nos proporciona **Semantic UI React**.
+8. Por último, la funcionalidad de borrar un post se realiza desde el componente **Posts** utilizando un Confirm para confirmar la eliminación del post.
+
+## Arrancar proyecto
+Para poder arrancar el proyecto, primero hay que instalar las dependencias. Para ello, nos situamos en la raiz del proyecto y ejecutamos:
+```bash
+npm install
+# o
+yarn install
+```
+Hecho esto, se autogenerará el node_modules (que contendrá las dependencias del package.json) y el package-lock.json.
+Una vez instaladas las dependencias, para iniciar el proyecto ejecutamos:
 ```bash
 npm run dev
-# or
+# o
 yarn dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Finalmente, abrimos en el navegador [http://localhost:3000](http://localhost:3000) para visualizar el proyecto.
